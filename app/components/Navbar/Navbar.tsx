@@ -6,13 +6,14 @@ import UserMenu from "./UserMenu";
 import {useEffect, useState} from 'react'
 
 
-const [hydrated, setHydrated]= useState(false)
 
-  useEffect(()=>{
-    setHydrated(true)
-  },[])
 
 const Navbar = () => {
+    const [hydrated, setHydrated]= useState(false)
+
+    useEffect(()=>{
+        setHydrated(true)
+    },[])
     return ( 
         hydrated&&
         <div className="fixed w-full bg-white z-10 shadow-sm">
