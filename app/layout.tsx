@@ -23,28 +23,24 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
 
-  const [hydrated, setHydrated]= useState(false)
-
-  useEffect(()=>{
-    setHydrated(true)
-  },[])
+  
 
   return (    
       
       <html>
         <body className={roboto.className}>
           <main className='divide-y-2'>    
-            {hydrated &&
+            
             <div className='flex flex-col w-full'>
-              <ToasterProvider/>
+              
               <RegisterModal/>
               <LoginModal/>
               <Navbar/>
             </div>
-            }
+            
             {children}
           </main>
-          {hydrated&&<Footer/>}
+          <Footer/>
         </body>
           
         

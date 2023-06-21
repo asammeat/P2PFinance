@@ -4,7 +4,7 @@ import axios from "axios";
 import { AiFillGithub } from "react-icons/ai";
 import { signIn } from "next-auth/react";
 import { FcGoogle } from "react-icons/fc";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import { 
   FieldValues, 
@@ -126,7 +126,13 @@ const RegisterModal= () => {
     </div>
   )
 
+  const [hydrated, setHydrated]= useState(false)
+
+  useEffect(()=>{
+    setHydrated(true)
+  },[])
   return (
+    hydrated&&
     <Modal
       disabled={isLoading}
       isOpen={registerModal.isOpen}

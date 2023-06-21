@@ -3,9 +3,18 @@ import Container from "../Container";
 import Logo from "./Logo";
 import Search from "./Search";
 import UserMenu from "./UserMenu";
+import {useEffect, useState} from 'react'
+
+
+const [hydrated, setHydrated]= useState(false)
+
+  useEffect(()=>{
+    setHydrated(true)
+  },[])
 
 const Navbar = () => {
     return ( 
+        hydrated&&
         <div className="fixed w-full bg-white z-10 shadow-sm">
             <div className="
                 py-4

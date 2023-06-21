@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import { signIn } from 'next-auth/react';
 import { 
@@ -25,7 +25,7 @@ const LoginModal = () => {
   const loginModal = useLoginModal();
   const registerModal = useRegisterModal();
   const [isLoading, setIsLoading] = useState(false);
-
+ 
   const { 
     register, 
     handleSubmit,
@@ -117,8 +117,13 @@ const LoginModal = () => {
       </div>
     </div>
   )
+  const [hydrated, setHydrated]= useState(false)
 
+  useEffect(()=>{
+    setHydrated(true)
+  },[])
   return (
+    hydrated&&
     <Modal
       disabled={isLoading}
       isOpen={loginModal.isOpen}
