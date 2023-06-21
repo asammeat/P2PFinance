@@ -1,6 +1,5 @@
-'use client';
 import Navbar from './components/Navbar/Navbar';
-import './globals.css' 
+import './globals.css'; 
 import { Nunito } from 'next/font/google';
 import { useEffect, useState } from 'react';
 import RegisterModal from './components/modals/RegisterModal';
