@@ -1,7 +1,8 @@
 'use client';
 import { ShieldCheckIcon } from "@heroicons/react/24/solid";
 import useRegisterModal from "@/app/hooks/useRegisterModal";
-import { ArrowDownTrayIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import 'react-tabs/style/react-tabs.css';
 import {
   Card,
   CardHeader,
@@ -74,6 +75,12 @@ const TABLE_ROWS = [
 export default function Bazar() {
     const registerModal = useRegisterModal();
   return (
+    <Tabs className="mt-32">
+    <TabList>
+      <Tab>Kredit</Tab>
+      <Tab>Invest</Tab>
+    </TabList>
+    <TabPanel>
     <Card className="h-full full-w px-10 py-20">
       <CardHeader floated={false} shadow={false} className="rounded-none">
         <div className="mb-4 flex flex-col justify-between gap-8 md:flex-row md:items-center">
@@ -205,5 +212,149 @@ export default function Bazar() {
         </Button>
       </CardFooter>
     </Card>
+    </TabPanel>
+    <TabPanel>
+    <Card className="h-full full-w px-10 py-20">
+      <CardHeader floated={false} shadow={false} className="rounded-none">
+        <div className="mb-4 flex flex-col justify-between gap-8 md:flex-row md:items-center">
+          <div className="py-5">
+            <Typography variant="h5" color="blue-gray">
+              Son Əməliyyatlar
+            </Typography>
+            <Typography color="gray" className="mt-1 font-normal">
+              Son əməliyyatlarla bağlı ətraflı bilgi
+            </Typography>
+          </div>
+        
+        </div>
+      </CardHeader>
+      <CardBody className="overflow-hidden px-0">
+        <table className="w-full min-w-max table-auto text-left">
+          <thead>
+            <tr>
+              {TABLE_HEAD.map((head) => (
+                <th key={head} className="border-y border-blue-gray-100 bg-blue-gray-50/50 p-4">
+                  <Typography
+                    variant="small"
+                    color="blue-gray"
+                    className="font-normal leading-none opacity-70"
+                  >
+                    {head}
+                  </Typography>
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {TABLE_ROWS.map(
+              ({ img, name, amount, date, status, account, accountNumber, expiry }, index) => {
+                const isLast = index === TABLE_ROWS.length - 1;
+                const classes = isLast ? "p-4" : "p-4 border-b border-blue-gray-50";
+ 
+                return (
+                  <tr key={name}>
+                    <td className={classes}>
+                      <div className="flex items-center gap-3">
+                        <Avatar
+                          src={img}
+                          alt={name}
+                          size="md"
+                          className="border border-blue-gray-50 bg-blue-gray-50/50 object-contain p-1"
+                        />
+                        <Typography variant="small" color="blue-gray" className="font-bold">
+                          {name}
+                        </Typography>
+                      </div>
+                    </td>
+                    <td className={classes}>
+                      <Typography variant="small" color="blue-gray" className="font-normal">
+                        {amount}
+                      </Typography>
+                    </td>
+                    <td className={classes}>
+                      <Typography variant="small" color="blue-gray" className="font-normal">
+                        {date}
+                      </Typography>
+                    </td>
+                    <td className={classes}>
+                      <div className="w-max">
+                        <Chip
+                          size="sm"
+                          variant="ghost"
+                          value={status}
+                          color={
+                            status === "paid" ? "green" : status === "pending" ? "amber" : "red"
+                          }
+                        />
+                      </div>
+                    </td>
+                    <td className={classes}>
+                      <div className="flex items-center gap-3">
+                        <div className="h-9 w-12 rounded-md border border-blue-gray-50 p-1">
+                          <Avatar
+                            src={
+                              account === "visa"
+                                ? "https://demos.creative-tim.com/test/corporate-ui-dashboard/assets/img/logos/visa.png"
+                                : "https://demos.creative-tim.com/test/corporate-ui-dashboard/assets/img/logos/mastercard.png"
+                            }
+                            size="sm"
+                            alt={account}
+                            variant="square"
+                            className="h-full w-full object-contain p-1"
+                          />
+                        </div>
+                        <div className="flex flex-col">
+                          <Typography
+                            variant="small"
+                            color="blue-gray"
+                            className="font-normal capitalize"
+                          >
+                            {account.split("-").join(" ")} {accountNumber}
+                          </Typography>
+                          <Typography
+                            variant="small"
+                            color="blue-gray"
+                            className="font-normal opacity-70"
+                          >
+                            {expiry}
+                          </Typography>
+                        </div>
+                      </div>
+                    </td>
+                    <td className={classes}>
+                      <Tooltip content="Invest">
+                        <IconButton onClick={registerModal.onOpen} variant="text" color="blue-gray">
+                          <ShieldCheckIcon className="h-6 w-6" color="green" />
+                        </IconButton>
+                      </Tooltip>
+                    </td>
+                  </tr>
+                );
+              },
+            )}
+          </tbody>
+        </table>
+      </CardBody>
+      <CardFooter className="flex items-center justify-between border-t border-blue-gray-50 p-4">
+        <Button variant="outlined" color="blue-gray" size="sm">
+          Previous
+        </Button>
+        
+        <Button variant="outlined" color="blue-gray" size="sm">
+          Next
+        </Button>
+      </CardFooter>
+    </Card>
+    </TabPanel>
+    
+  </Tabs>
+    
+
+  
+
+
+
+
+
   );
 }

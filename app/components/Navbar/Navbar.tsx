@@ -1,14 +1,17 @@
 'use client';
+import { User } from "@prisma/client";
 import Container from "../Container";
 import Logo from "./Logo";
 import Search from "./Search";
 import UserMenu from "./UserMenu";
 import {useEffect, useState} from 'react'
 
+interface NavbarProps {
+    currentUser?: User | null;
+}
 
 
-
-const Navbar = () => {
+const Navbar: React.FC<NavbarProps> = ({currentUser}) => {
     const [hydrated, setHydrated]= useState(false)
 
     useEffect(()=>{
@@ -33,7 +36,7 @@ const Navbar = () => {
                 ">
                 <Logo/>
                 <Search/>
-                <UserMenu/>
+                <UserMenu currentUser = {currentUser} />
                 </div>
             </Container>
 

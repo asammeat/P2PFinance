@@ -82,8 +82,8 @@ const UserMenu: React.FC<UserMenuProps> = ({
             absolute 
             rounded-xl 
             shadow-md
-            w-[40vw]
-            md:w-3/4 
+            w-[50vw]
+            md:w-[20vw]
             bg-white 
             overflow-hidden 
             right-0 
@@ -95,24 +95,24 @@ const UserMenu: React.FC<UserMenuProps> = ({
             {currentUser ? (
               <>
                 <MenuItem 
-                  label="My trips" 
-                  onClick={() => router.push('/trips')}
+                  label="Hesabım" 
+                  onClick={() => router.push('/hesab')}
                 />
                 <MenuItem 
-                  label="My favorites" 
-                  onClick={() => router.push('/favorites')}
+                  label="Şəxsi Kabinet" 
+                  onClick={() => router.push('/kabinet')}
                 />
                 <MenuItem 
-                  label="My reservations" 
-                  onClick={() => router.push('/reservations')}
+                  label="Dəstək" 
+                  onClick={() => router.push('/destek')}
                 />
                 <MenuItem 
-                  label="My properties" 
-                  onClick={() => router.push('/properties')}
+                  label="Tənzimləmələr" 
+                  onClick={() => router.push('/tenzimleme')}
                 />
                 <hr />
                 <MenuItem 
-                  label="Logout" 
+                  label="Çıxış" 
                   onClick={() => signOut()}
                 />
               </>

@@ -21,6 +21,7 @@
     "bcrypt": "^5.1.0",
     "eslint": "8.43.0",
     "eslint-config-next": "13.4.6",
+    "flowbite-react": "^0.4.10",
     "heroicons": "^2.0.18",
     "next": "^13.4.6",
     "next-auth": "^4.22.1",
@@ -32,6 +33,8 @@
     "react-hot-toast": "^2.4.1",
     "react-hydration-provider": "^1.0.2",
     "react-icons": "^4.9.0",
+    "react-tabs": "^6.0.1",
+    "tailadmin-react-free": "file:free-react-tailwind-admin-dashboard-main/free-react-tailwind-admin-dashboard-main",
     "tailwindcss": "3.3.2",
     "typescript": "5.1.3",
     "zustand": "^4.3.8"
