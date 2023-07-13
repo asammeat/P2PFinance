@@ -8,7 +8,7 @@ import {useEffect, useState} from 'react'
 import { SafeUser } from "@/app/types";
 
 interface NavbarProps {
-    currentUser?: SafeUser | null;
+    currentUser?: SafeUser | null | undefined;
 }
 
 
