@@ -13,11 +13,11 @@ import MenuItem from "../MenuItem";
 import Avatar from "../Avatar";
 
 interface UserMenuProps {
-  currentUser?: SafeUser | null
+  user?: SafeUser | null
 }
 
 const UserMenu: React.FC<UserMenuProps> = ({
-  currentUser
+  user
 }) => {
   const router = useRouter();
 
@@ -72,7 +72,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
         >
           <AiOutlineMenu />
           <div className="hidden md:block">
-            <Avatar src={currentUser?.image} />
+            <Avatar src={user?.image} />
           </div>
         </div>
       </div>
@@ -92,7 +92,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
           "
         >
           <div className="flex flex-col cursor-pointer">
-            {currentUser ? (
+            {user ? (
               <>
                 <MenuItem 
                   label="Hesabım" 
