@@ -53,7 +53,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
           P2P
         </div>
         <div 
-        onClick={toggleOpen}
+        onClick={toggleOpen}  
         className="
           p-4
           md:py-1
